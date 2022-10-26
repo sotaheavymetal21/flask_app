@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>{{name}}</title>
+    </head>
+    <body>
+      {% if name == "gorilla" %}
+      <h1>スーパードンキーコングは{{name}}の神ゲー</h1>
+      {% elif name %}
+      <h1>スーパードンキーコングは{{name}}の神ゲー</h1>
+      {% else %}
+      <h1>スーパードンキーコングはゴリラ大暴れ</h1>
+      {% endif %}
+      <form action="/index" method="POST">
+        <input type="text" name="name" placeholder="Enter name">
+        <input type="submit" value="Submit">
+    </form>
+    <img src="/static/images/donkey_kong.jpg" alt="ドンキーコング">
+    {% for gorilla in family %}
+    <p>{{gorilla}}</p>
+    {% endfor %}
+    </body>
+</html>
