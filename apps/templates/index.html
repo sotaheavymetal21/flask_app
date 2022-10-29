@@ -3,6 +3,7 @@
     <head>
       <title>{{name}}</title>
     </head>
+    <a href="/logout">ログアウトする</a>
     <body>
       {% if name == "gorilla" %}
       <h1>スーパードンキーコングは{{name}}の神ゲー</h1>
@@ -21,8 +22,20 @@
       <input type="text" name="body" placeholder="body">
       <input type="submit" value="Add">
     </form>
-    {% for gorilla in all_character %}
-    <p>{{gorilla.title}}:{{gorilla.body}}({{gorilla.date}})</p>
-    {% endfor %}
+    <form action="/update" method="post" id="update">
+      <input type="text" name="title" placeholder="title">
+      <input type="text" name="body" placeholder="body">
+      <input type="submit" value="Update">
+    </form>
+    <form action="delete" method="post" id="delete">
+      <input type="submit" value="Delete selected all character">
+    </form>
+      {% for gorilla in all_character %}
+      <div>
+        <input type="radio" name="update" form="update" value={{gorilla.id}}>
+        <input type="checkbox" name="delete" form="delete" value={{gorilla.id}}>
+        {{gorilla.title}}:{{gorilla.body}}{{gorilla.date}}
+      </div>
+      {% endfor %}
     </body>
 </html>
