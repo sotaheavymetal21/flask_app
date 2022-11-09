@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 from datetime import datetime
 from hashlib import sha256
 
-from flask_app import secret_key
+from apps import secret_key
 from models.models import Characters, Users
 from models.db_setting import db_session
 
